@@ -2,9 +2,9 @@
  # Owner : Anonymous
  # Last Update : February 6th, 2021
  #
- # Requirements: Selenium, Chromedriver.exe
+ # Requirements: Selenium, Chromedriver
  # 
- # Selenium docs for reference : https://selenium-python.readthedocs.io/locating-elements.html
+ # Selenium docs for reference : https://selenium-python.readthedocs.io/
  
 from selenium import webdriver
 import time
@@ -15,6 +15,12 @@ NON_MEMBER_URL = "https://app.rockgympro.com/b/widget/?a=offering&offering_guid=
 
 # Connect to chromedriver & load website
 CHROMEDRIVER_PATH = r'C:/Program Files/Chromedriver/chromedriver.exe'
+
+#options = webdriver.ChromeOptions() 
+#options.add_argument("start-maximized")
+#options.add_experimental_option("excludeSwitches", ["enable-automation"])
+#options.add_experimental_option('useAutomationExtension', False)
+
 driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH)
 driver.get(NON_MEMBER_URL)
 
@@ -27,7 +33,7 @@ DAY_OF_WEEK = 3 # Sunday = 1; Monday = 2; Tuesday = 3; Wednesday = 4; etc..
 # This depends on how many selections are available for that day.
 # Ex: if the first available hour is 12-2pm, then to select the noon slot you set HOUR_OF_DAY = 1
 # On Tuesday for 5:45 pm, it will likely be HOUR_OF_DAY = 3
-HOUR_OF_DAY = 1
+HOUR_OF_DAY = 3
 
 FIRST_NAME = "Tara"
 MIDDLE_NAME = "Christina"
@@ -108,9 +114,23 @@ iagree_1.click()
 iagree_2 = driver.find_element_by_xpath(xpath_iagree_2)
 iagree_2.click()
 
-print("Done third screen. You are not a robot!")
+print("Done third screen.")
 # You are done the form. Click the "I'm not a bot" and you will be reserved!
 
+# Next Steps : 
+# https://stackoverflow.com/questions/58872451/how-can-i-bypass-the-google-captcha-with-selenium-and-python
+# https://stackoverflow.com/questions/53917157/find-the-recaptcha-element-and-click-on-it-python-selenium/53917309#53917309
+# https://sqa.stackexchange.com/questions/33219/how-to-avoid-triggering-google-captcha-while-browsing-in-a-selenium-driven-brows
 
+# Notes : the code below produces fading images on recaptcha (highest level of recaptcha). 
+#  Only 2 sets of images are produced when not attempting to click on recaptcha thru selenium (time to complete form = 1 minute)
 
+#from selenium.webdriver.support.ui import WebDriverWait
+#from selenium.webdriver.common.by import By
+#from selenium.webdriver.support import expected_conditions as EC
+
+#WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.CSS_SELECTOR,"iframe[name^='a-'][src^='https://www.google.com/recaptcha/api2/anchor?']")))
+#WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]'))).click()
+
+#print("You are for sure not a robot!")
 
