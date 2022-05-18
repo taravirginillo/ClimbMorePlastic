@@ -35,15 +35,16 @@ DAY_OF_WEEK = 3 # Sunday = 1; Monday = 2; Tuesday = 3; Wednesday = 4; etc..
 # On Tuesday for 5:45 pm, it will likely be HOUR_OF_DAY = 3
 HOUR_OF_DAY = 3
 
-FIRST_NAME = "Tara"
-MIDDLE_NAME = "Christina"
-LAST_NAME = "Virginillo"
-BIRTH_MONTH = "Apr"
-BIRTH_DAY = 26
-BIRTH_YEAR = 1997
+# TODO ---- FILL IN
+FIRST_NAME = ""
+MIDDLE_NAME = ""
+LAST_NAME = ""
+BIRTH_MONTH = ""
+BIRTH_DAY = 0
+BIRTH_YEAR = 0
 
-EMAIL = "taravirginillo@gmail.com"
-PHONE = "6692684951"
+EMAIL = "0"
+PHONE = "1234567890"
 
 # --------------------------------- FIRST WIDGET SCREEN ----------------------------------------------------------------
 
